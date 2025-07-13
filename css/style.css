@@ -81,87 +81,167 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   padding: 7rem 0px;
 }
 
+/* ===================================================================
+    1. Gaya Dasar Tombol (Base Button Styles)
+====================================================================== */
+
 .btn {
+  /* Positioning & Box Model */
   display: inline-block;
-  font-size: 14px;
-  font-size: 0.8125rem;
-  font-weight: 400;
-  padding: 1rem 2.5rem;
+  padding: 0.75rem 1.75rem; /* Padding default yang seimbang */
+  border: 2px solid transparent; /* Mencegah "goyangan" saat border ditambah pada hover */
+
+  /* Typography */
+  color: #fff;
+  font-family: sans-serif; /* Sebaiknya tentukan font-family */
+  font-size: 1rem; /* Ukuran font dasar menggunakan rem untuk skalabilitas */
+  font-weight: 600; /* Sedikit lebih tebal untuk keterbacaan */
+  text-align: center;
   text-transform: uppercase;
-  border-radius: 0;
-  transition: all 0.2s ease;
+  text-decoration: none;
+
+  /* Visual */
+  background-color: #f75757;
+  border-radius: 6px; /* Sudut sedikit melengkung untuk tampilan modern */
+  cursor: pointer;
+  
+  /* Transitions & Animations */
+  transition: all 0.2s ease-in-out;
 }
 
+/* State: Hover & Focus */
+.btn:hover {
+  transform: translateY(-2px); /* Efek terangkat saat di-hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:focus,
+.btn:active {
+  outline: none; /* Hapus outline bawaan browser */
+  box-shadow: 0 0 0 3px rgba(247, 87, 87, 0.4); /* Tambahkan focus ring untuk aksesibilitas */
+}
+
+/* Style untuk Ikon di dalam Tombol */
 .btn.btn-icon i {
-  font-size: 16px;
+  font-size: 1.1em; /* Ukuran relatif terhadap font tombol */
   vertical-align: middle;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
-.btn:focus {
-  outline: 0px;
-  border: 0px;
-  box-shadow: none;
+/* === Gaya Judul Animasi === */
+.animated-title {
+    font-size: 3rem; /* Ukuran font bisa disesuaikan */
+    font-weight: 700;
+    color: transparent; /* Membuat teks transparan */
+    background: linear-gradient(90deg, #ff8a00, #e52e71, #2455f4, #ff8a00);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient-flow 5s linear infinite;
 }
 
-.btn-main, .btn-transparent, .btn-small {
-  background: #f75757;
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* === Gaya Tombol Media Sosial === */
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem; /* Ukuran ikon */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 0 10px; /* Jarak antar tombol */
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Warna Khas untuk Setiap Tombol */
+.social-btn.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+.social-btn.facebook {
+    background-color: #1877F2;
+}
+.social-btn.tiktok {
+    background-color: #000000;
+}
+/* ===================================================================
+    2. Variasi Warna Tombol (Color Variations)
+====================================================================== */
+
+/* Tombol Utama (Warna Solid) */
+.btn-main {
+  background-color: #f75757;
   color: #fff;
-  transition: all 0.2s ease;
 }
 
-.btn-main:hover, .btn-transparent:hover, .btn-small:hover {
-  background: #dd0b0b;
+.btn-main:hover {
+  background-color: #dd0b0b; /* Warna lebih gelap saat di-hover */
   color: #fff;
 }
 
+/* Tombol dengan Border */
 .btn-solid-border {
-  border: 2px solid #f75757;
-  background: transparent;
+  background-color: transparent;
+  border-color: #f75757;
   color: #242424;
 }
 
 .btn-solid-border:hover {
-  border: 2px solid #f75757;
-  background: #f75757;
+  background-color: #f75757;
+  color: #fff;
 }
 
+/* Tombol Transparan (Ghost Button) */
 .btn-transparent {
-  background: transparent;
-  padding: 0;
+  background-color: transparent;
   color: #f75757;
 }
 
 .btn-transparent:hover {
-  background: transparent;
-  color: #f75757;
+  background-color: rgba(247, 87, 87, 0.1); /* Latar belakang samar saat di-hover */
+  color: #dd0b0b;
 }
+
+
+/* ===================================================================
+    3. Variasi Ukuran Tombol (Size Variations)
+====================================================================== */
 
 .btn-large {
-  padding: 20px 45px;
-}
-
-.btn-large.btn-icon i {
-  font-size: 16px;
-  vertical-align: middle;
-  margin-right: 5px;
+  padding: 1rem 2.5rem;
+  font-size: 1.15rem;
 }
 
 .btn-small {
-  padding: 10px 25px;
-  font-size: 12px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
 }
 
-.btn-round {
-  border-radius: 4px;
+
+/* ===================================================================
+    4. Variasi Bentuk Tombol (Shape Variations)
+====================================================================== */
+
+/* Tombol dengan sudut tajam */
+.btn-sharp {
+    border-radius: 0;
 }
 
+/* Tombol dengan sudut sangat melengkung (pil) */
 .btn-round-full {
   border-radius: 50px;
-}
-
-.btn.active:focus, .btn:active:focus, .btn:focus {
-  outline: 0;
 }
 
 .bg-gray {
@@ -509,7 +589,7 @@ ul.dropdown-menu li {
 }
 
 .slider {
-  background: url("../images/bg/home-1.jpg") no-repeat;
+  background: url("../images/logo1.jpg") no-repeat;
   background-size: cover;
   background-position: 10% 0%;
   padding: 200px 0 280px 0;
@@ -557,13 +637,13 @@ ul.dropdown-menu li {
 }
 
 .bg-about {
-  position: absolute;
+  position: relative;
   content: "";
   left: 0px;
   top: 0px;
-  width: 45%;
-  min-height: 650px;
-  background: url("../images/about/home-8.jpg") no-repeat;
+  width: 60%;
+  min-height: 800px;
+  background: url("../images/about/pakdwi.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -1414,6 +1494,25 @@ h3.quote::before {
     display: none;
     width: 100%;
     text-align: center;
+  }
+}
+section.intro .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+section.intro .row > div {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  section.intro .row > div {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
   }
 }
 
